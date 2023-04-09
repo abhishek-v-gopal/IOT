@@ -1,0 +1,2 @@
+In this project if an object is present in fornt of the ultrasound sensor the led light will start blinking .
+If the object come towards the sensor the led will blink with less delay
