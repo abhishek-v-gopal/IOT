@@ -1,0 +1,56 @@
+// Define pins
+const int trigPin = 9;
+const int echoPin = 10;
+const int ledPin = 13;
+
+// Define variables
+long duration;
+int distance;
+int blinkInterval;
+
+void setup() {
+  // Initialize pins
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+
+  // Serial communication for debugging
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Send a pulse to the ultrasonic sensor
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Measure the duration of the pulse
+  duration = pulseIn(echoPin, HIGH);
+
+  // Calculate distance in centimeters
+  distance = duration / 58;
+
+  // Set blink interval based on distance
+  if (distance < 10) {
+    blinkInterval = 100;
+  } else if (distance < 20) {
+    blinkInterval = 200;
+  } else if (distance < 30) {
+    blinkInterval = 300;
+  } else {
+    blinkInterval = 500;
+  }
+
+  // Blink the LED at the appropriate interval
+  digitalWrite(ledPin, HIGH);
+  delay(blinkInterval);
+  digitalWrite(ledPin, LOW);
+  delay(blinkInterval);
+
+  // Print distance for debugging
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+}
