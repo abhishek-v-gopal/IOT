@@ -1,0 +1,2 @@
+In this project when an obstacle will appear in a certain distance in front of the ultrasound sensor the servo will turn 90 degree .
+If the obstacle is removed it will come back to its orginal position
