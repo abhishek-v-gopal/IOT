@@ -1,2 +1,2 @@
 # IOT
- This repo is used to showcase our small iot projects
+ This repo is used to showcase our small IOT projects. 
