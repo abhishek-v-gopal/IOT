@@ -1,7 +1,4 @@
-//Viral Science www.youtube.com/c/viralscience
-//RFID Solenoid Lock
-
-#include <SPI.h>
+include <SPI.h>
 #include <MFRC522.h>
  
 #define SS_PIN 10
